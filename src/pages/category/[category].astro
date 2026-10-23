@@ -1,0 +1,53 @@
+---
+// src/pages/category/[category].astro - Category Archive Page
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  const categories = Array.from(new Set(posts.map(p => p.data.category)));
+
+  return categories.map(cat => ({
+    params: { category: cat.toLowerCase().replace(/[^a-z0-9]+/g, '-') },
+    props: {
+      categoryName: cat,
+      posts: posts.filter(p => p.data.category === cat),
+    },
+  }));
+}
+
+const { categoryName, posts } = Astro.props;
+const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout
+  title={`${categoryName} — Kido Engineering Blog`}
+  description={`Các bài viết chuyên sâu về chủ đề ${categoryName} bởi Dương Phúc Khánh.`}
+>
+  <nav class="flex items-center gap-2 text-xs font-mono text-slate-400 mb-6">
+    <a href="/" class="hover:text-sky-400 transition-colors">Home</a>
+    <span>/</span>
+    <span class="text-sky-400">Category</span>
+    <span>/</span>
+    <span class="text-slate-300">{categoryName}</span>
+  </nav>
+
+  <header class="py-6 border-b border-[#1e293b]/70 mb-8">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium bg-sky-950/80 text-sky-400 border border-sky-500/30 mb-3">
+      <span>Chuyên Mục Kiến Trúc</span>
+    </div>
+    <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-100 tracking-tight">
+      {categoryName}
+    </h1>
+    <p class="text-xs sm:text-sm text-slate-400 mt-2">
+      Tổng cộng {posts.length} bài phân tích chuyên sâu với mã nguồn và benchmark thực chiến.
+    </p>
+  </header>
+
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+    {sortedPosts.map(post => (
+      <ArticleCard post={post} />
+    ))}
+  </section>
+</BaseLayout>

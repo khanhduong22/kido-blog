@@ -1,0 +1,107 @@
+---
+// Footer.astro - Author Entity, Knowledge Graph & Verification
+---
+
+<footer class="mt-24 border-t border-[#1e293b] bg-[#070b12] text-slate-400">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+      <div class="md:col-span-2 space-y-4">
+        <div class="flex items-center gap-3">
+          <img src="/logo.png" alt="Dương Phúc Khánh" class="w-8 h-8 rounded-lg border border-sky-500/30" />
+          <div>
+            <h3 class="text-sm font-semibold text-slate-100 tracking-tight">Kido Engineering Blog</h3>
+            <p class="text-xs text-slate-400 font-mono">by Dương Phúc Khánh (khanhdp)</p>
+          </div>
+        </div>
+        <p class="text-xs leading-relaxed text-slate-400 max-w-md">
+          Chuyên trang chia sẻ kiến trúc hệ thống cấp cao (Deep-Dive System Architecture), thiết kế backend chịu tải lớn (High Concurrency), tối ưu hoá Core Web Vitals chuẩn Big Tech và kỹ thuật vận hành hạ tầng phân tán.
+        </p>
+        <div class="flex flex-wrap gap-2 pt-2">
+          <a
+            href="https://www.wikidata.org/wiki/Q141718572"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-[11px] font-mono text-slate-300 hover:text-sky-400 hover:border-sky-500/40 transition-colors"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            Wikidata: Q141718572
+          </a>
+          <a
+            href="https://kg.google.com/g/11zyg5zq1c"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-[11px] font-mono text-slate-300 hover:text-sky-400 hover:border-sky-500/40 transition-colors"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+            Google KG: /g/11zyg5zq1c
+          </a>
+          <a
+            href="https://orcid.org/0009-0005-7192-2664"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-[11px] font-mono text-slate-300 hover:text-sky-400 hover:border-sky-500/40 transition-colors"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-lime-400"></span>
+            ORCID: 0009-0005-7192-2664
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-semibold text-slate-200 uppercase tracking-wider mb-3 font-mono">Hệ Sinh Thái</h4>
+        <ul class="space-y-2 text-xs">
+          <li>
+            <a href="https://blog.khanhdp.com" class="hover:text-sky-400 transition-colors flex items-center justify-between">
+              <span>Engineering Blog</span>
+              <span class="text-[10px] font-mono text-sky-400">Current</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://truyen.khanhdp.com" target="_blank" rel="noopener noreferrer" class="hover:text-amber-300 transition-colors flex items-center justify-between">
+              <span>🎭 Kido Chronicles</span>
+              <span class="text-[10px] font-mono text-amber-400">131+ Tập ↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://khanhdp.com" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition-colors flex items-center justify-between">
+              <span>Portfolio & Bio</span>
+              <span class="text-[10px] font-mono text-slate-400">khanhdp.com ↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/khanhduong22" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition-colors flex items-center justify-between">
+              <span>GitHub Projects</span>
+              <span class="text-[10px] font-mono text-slate-400">@khanhduong22 ↗</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-semibold text-slate-200 uppercase tracking-wider mb-3 font-mono">Tài Nguyên</h4>
+        <ul class="space-y-2 text-xs">
+          <li>
+            <a href="/llms.txt" class="hover:text-sky-400 transition-colors flex items-center gap-1.5">
+              <span class="font-mono text-[10px] bg-slate-800 px-1 py-0.5 rounded text-sky-300">API</span>
+              <span>/llms.txt (AI Crawlers)</span>
+            </a>
+          </li>
+          <li>
+            <a href="/sitemap-index.xml" class="hover:text-sky-400 transition-colors">Sitemap XML</a>
+          </li>
+          <li>
+            <a href="/rss.xml" class="hover:text-sky-400 transition-colors">RSS Feed 2.0</a>
+          </li>
+          <li>
+            <a href="/robots.txt" class="hover:text-sky-400 transition-colors">Robots.txt</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <p>© 2026 Dương Phúc Khánh (Kido). Bản quyền thuộc về tác giả. Mọi chia sẻ vui lòng trích dẫn nguồn blog.khanhdp.com.</p>
+      <p class="font-mono text-[11px]">Designed with Astro 5 & Tailwind CSS</p>
+    </div>
+  </div>
+</footer>

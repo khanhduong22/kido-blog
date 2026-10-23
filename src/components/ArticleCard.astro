@@ -1,0 +1,81 @@
+---
+// ArticleCard.astro - Card displaying an engineering post
+interface Props {
+  post: {
+    id: string;
+    data: {
+      title: string;
+      description: string;
+      pubDate: Date;
+      category: string;
+      cover: string;
+      readingTime: string;
+      tags: string[];
+      relatedEpisodes?: { ep: number; title: string; slug: string }[];
+    };
+  };
+}
+
+const { post } = Astro.props;
+const slug = post.id.replace(/\.md$/, '');
+const formattedDate = new Intl.DateTimeFormat('vi-VN', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric'
+}).format(post.data.pubDate);
+---
+
+<article 
+  class="article-card group relative flex flex-col bg-[#111827]/70 hover:bg-[#161f30] border border-[#1f293d] hover:border-sky-500/50 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-sky-950/30"
+  data-title={post.data.title.toLowerCase()}
+  data-category={post.data.category.toLowerCase()}
+  data-tags={post.data.tags.join(' ').toLowerCase()}
+  data-desc={post.data.description.toLowerCase()}
+>
+  <div class="relative aspect-[16/9] w-full overflow-hidden bg-slate-900 border-b border-[#1f293d]/60">
+    <img
+      src={post.data.cover}
+      alt={post.data.title}
+      loading="lazy"
+      decoding="async"
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0a0e17] via-transparent to-transparent opacity-80"></div>
+    <div class="absolute top-3 left-3">
+      <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-medium tracking-wide bg-sky-950/80 text-sky-300 border border-sky-500/30 backdrop-blur-md">
+        {post.data.category}
+      </span>
+    </div>
+  </div>
+
+  <div class="flex-1 flex flex-col p-5 sm:p-6">
+    <div class="flex items-center gap-3 text-xs text-slate-400 font-mono mb-3">
+      <span>{formattedDate}</span>
+      <span>•</span>
+      <span class="text-sky-400">{post.data.readingTime}</span>
+    </div>
+
+    <h3 class="text-base sm:text-lg font-bold text-slate-100 group-hover:text-sky-300 transition-colors leading-snug tracking-tight mb-2.5">
+      <a href={`/blog/${slug}/`} class="focus:outline-none">
+        <span class="absolute inset-0 z-10"></span>
+        {post.data.title}
+      </a>
+    </h3>
+
+    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed line-clamp-3 mb-4 flex-1">
+      {post.data.description}
+    </p>
+
+    {post.data.relatedEpisodes && post.data.relatedEpisodes.length > 0 && (
+      <div class="mt-auto pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-amber-300/90 font-mono">
+        <span class="flex items-center gap-1.5">
+          <span>🎭</span>
+          <span>Truyện Ký Sự:</span>
+        </span>
+        <span class="text-amber-400 font-semibold truncate max-w-[180px]">
+          {post.data.relatedEpisodes.map(e => `Tập ${e.ep}`).join(', ')}
+        </span>
+      </div>
+    )}
+  </div>
+</article>

@@ -1,0 +1,79 @@
+---
+// src/pages/index.astro - Engineering Blog Home
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import SearchFilter from '../components/SearchFilter.astro';
+
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Collect all unique categories
+const categories = Array.from(new Set(posts.map(p => p.data.category)));
+---
+
+<BaseLayout
+  title="Kido Engineering Blog — Deep-Dive System Architecture & High-Concurrency Backend"
+  description="Chuyên trang kỹ thuật cấp cao về kiến trúc phân tán, backend chịu tải cao, tối ưu hoá Google Core Web Vitals (0ms TBT, CLS 0.000) và DevOps thực chiến bởi Dương Phúc Khánh."
+>
+  <!-- Hero Section -->
+  <section class="py-8 sm:py-12 border-b border-[#1e293b]/70">
+    <div class="max-w-3xl space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium bg-sky-950/80 text-sky-400 border border-sky-500/30">
+        <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+        <span>Authoritative Big-Tech Architecture Hub</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-100 tracking-tight leading-tight">
+        Kido Engineering Blog
+      </h1>
+
+      <p class="text-sm sm:text-base text-slate-400 leading-relaxed">
+        Kho tư liệu kiến trúc phần mềm thực chiến theo tiêu chuẩn Big Tech: Từ phân tích thất bại khi mở rộng quy mô (Scale Bottlenecks), chứng minh độ phức tạp Big-O, đến tối ưu hóa tài nguyên phần cứng tới từng byte bộ nhớ.
+      </p>
+
+      <!-- Manga Chronicles Flywheel Banner -->
+      <div class="pt-2">
+        <a
+          href="https://truyen.khanhdp.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500/15 via-orange-500/15 to-transparent text-amber-300 border border-amber-500/30 hover:border-amber-400 hover:text-amber-200 transition-all text-xs font-medium group"
+        >
+          <span class="text-base">🎭</span>
+          <span>Đọc phiên bản Truyện Ký Sự Giải Trí & Tranh Manga trên <strong>Kido Chronicles (truyen.khanhdp.com)</strong></span>
+          <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Search & Category Filter -->
+  <SearchFilter categories={categories} />
+
+  <!-- Article Grid -->
+  <section class="py-4">
+    <div id="articles-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+      {sortedPosts.map(post => (
+        <ArticleCard post={post} />
+      ))}
+    </div>
+  </section>
+
+  <!-- Philosophy callout -->
+  <section class="mt-16 p-6 sm:p-8 rounded-2xl bg-[#0f172a]/50 border border-[#1e293b] text-xs sm:text-sm text-slate-400 leading-relaxed">
+    <h2 class="text-sm sm:text-base font-bold text-slate-200 mb-2 font-mono flex items-center gap-2">
+      <span class="text-sky-400">⚡</span>
+      <span>Tiêu Chuẩn Kiến Trúc Tiến Hóa (The Evolutionary Progression)</span>
+    </h2>
+    <p>
+      Mọi bài viết trên Kido Engineering Blog đều tuân thủ nghiêm ngặt 3 giai đoạn tiến hóa kiến trúc:
+      <strong class="text-slate-200"> 1. Sơ khởi (Naive Approach)</strong> ➔ 
+      <strong class="text-amber-300"> 2. Điểm nghẽn khi Scale (Scale Bottlenecks & Failure Modes)</strong> ➔ 
+      <strong class="text-sky-400"> 3. Chuẩn Big Tech Production (Tier-1 Production Architecture + Code + Benchmarks)</strong>. 
+      Chúng tôi nói không với các bản vá chắp vá bề mặt và luôn hướng tới các mẫu thiết kế bền vững cho tương lai.
+    </p>
+  </section>
+</BaseLayout>

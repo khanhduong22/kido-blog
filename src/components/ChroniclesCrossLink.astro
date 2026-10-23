@@ -1,0 +1,64 @@
+---
+// ChroniclesCrossLink.astro - Interactive Manga & Story Cross-link Card
+interface Props {
+  episodes: {
+    ep: number;
+    title: string;
+    slug: string;
+  }[];
+}
+
+const { episodes = [] } = Astro.props;
+---
+
+<div class="my-10 p-6 rounded-2xl bg-gradient-to-br from-amber-950/30 via-[#141824] to-slate-900 border border-amber-500/30 shadow-xl shadow-amber-950/20 relative overflow-hidden">
+  <div class="absolute -right-8 -top-8 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="relative z-10">
+    <div class="flex items-center gap-3 mb-3">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-500 flex items-center justify-center text-xl shadow-md shadow-orange-950/50">
+        🎭
+      </div>
+      <div>
+        <span class="text-[11px] font-mono uppercase tracking-widest text-amber-400 font-semibold">
+          Kido Chronicles Flywheel
+        </span>
+        <h3 class="text-base sm:text-lg font-bold text-slate-100 tracking-tight">
+          Đọc phiên bản Truyện Ký Sự Giải Trí & Tranh Minh Hoạ trên Kido Chronicles
+        </h3>
+      </div>
+    </div>
+
+    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+      Bạn muốn thư giãn với những tình huống dở khóc dở cười, drama debug thâu đêm và các nhân vật meme IT hài hước xoay quanh chủ đề kỹ thuật này? Hãy thưởng thức các chương truyện tranh manga minh họa độc quyền tương ứng:
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+      {episodes.map(item => (
+        <a
+          href={`https://truyen.khanhdp.com/${item.slug}/`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex items-center justify-between p-3 rounded-xl bg-[#0e1422] border border-amber-500/20 hover:border-amber-400 hover:bg-amber-950/20 transition-all text-xs"
+        >
+          <div class="flex items-center gap-2.5 min-w-0 pr-2">
+            <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono font-bold text-[11px] shrink-0">
+              Tập {item.ep}
+            </span>
+            <span class="text-slate-200 group-hover:text-amber-200 font-medium truncate">
+              {item.title}
+            </span>
+          </div>
+          <svg class="w-4 h-4 text-amber-400 group-hover:translate-x-0.5 transition-transform shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      ))}
+    </div>
+
+    <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
+      <span>Đọc toàn bộ 131+ tập truyện tại <a href="https://truyen.khanhdp.com" target="_blank" class="text-amber-300 hover:underline">truyen.khanhdp.com</a></span>
+      <span class="font-mono text-amber-400/80">Khám Phá Vũ Trụ Manga ↗</span>
+    </div>
+  </div>
+</div>

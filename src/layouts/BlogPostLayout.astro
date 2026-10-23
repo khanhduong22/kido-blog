@@ -1,0 +1,170 @@
+---
+// BlogPostLayout.astro - Specialized layout for architecture articles
+import BaseLayout from './BaseLayout.astro';
+import AuthorBadge from '../components/AuthorBadge.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import ChroniclesCrossLink from '../components/ChroniclesCrossLink.astro';
+import CopyCodeScript from '../components/CopyCodeScript.astro';
+
+interface Props {
+  post: {
+    id: string;
+    data: {
+      title: string;
+      description: string;
+      pubDate: Date;
+      updatedDate?: Date;
+      category: string;
+      cover: string;
+      readingTime: string;
+      tags: string[];
+      relatedEpisodes?: { ep: number; title: string; slug: string }[];
+    };
+  };
+  headings: { depth: number; slug: string; text: string }[];
+}
+
+const { post, headings } = Astro.props;
+const slug = post.id.replace(/\.md$/, '');
+const currentUrl = `https://blog.khanhdp.com/blog/${slug}/`;
+
+const formattedDate = new Intl.DateTimeFormat('vi-VN', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+}).format(post.data.pubDate);
+
+const articleSchema = {
+  "@type": "TechArticle",
+  "@id": `${currentUrl}#article`,
+  "headline": post.data.title,
+  "description": post.data.description,
+  "image": `https://blog.khanhdp.com${post.data.cover}`,
+  "datePublished": post.data.pubDate.toISOString(),
+  "dateModified": (post.data.updatedDate || post.data.pubDate).toISOString(),
+  "author": {
+    "@id": "https://khanhdp.com/#person"
+  },
+  "publisher": {
+    "@id": "https://khanhdp.com/#person"
+  },
+  "mainEntityOfPage": currentUrl,
+  "inLanguage": "vi-VN",
+  "keywords": post.data.tags.join(', ')
+};
+---
+
+<BaseLayout
+  title={`${post.data.title} — Kido Engineering`}
+  description={post.data.description}
+  image={post.data.cover}
+  canonicalUrl={currentUrl}
+  type="article"
+  articleSchema={articleSchema}
+>
+  <!-- Breadcrumbs -->
+  <nav class="flex items-center gap-2 text-xs font-mono text-slate-400 mb-6">
+    <a href="/" class="hover:text-sky-400 transition-colors">Home</a>
+    <span>/</span>
+    <span class="text-sky-400">{post.data.category}</span>
+    <span>/</span>
+    <span class="text-slate-500 truncate max-w-[200px]">{post.data.title}</span>
+  </nav>
+
+  <!-- Post Header -->
+  <header class="space-y-4 mb-8">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-sky-950/80 text-sky-300 border border-sky-500/30">
+      <span>{post.data.category}</span>
+    </div>
+
+    <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-100 tracking-tight leading-tight">
+      {post.data.title}
+    </h1>
+
+    <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl">
+      {post.data.description}
+    </p>
+
+    <AuthorBadge date={formattedDate} readingTime={post.data.readingTime} />
+  </header>
+
+  <!-- Featured Cover Image -->
+  <div class="mb-10 rounded-2xl overflow-hidden border border-[#1f293d] bg-slate-900 shadow-2xl shadow-sky-950/30">
+    <img
+      src={post.data.cover}
+      alt={post.data.title}
+      class="w-full aspect-[21/9] object-cover"
+      loading="eager"
+      decoding="async"
+    />
+  </div>
+
+  <!-- Content & TOC Grid -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+    <!-- Main Content Area -->
+    <article class="lg:col-span-8 min-w-0 prose prose-invert prose-slate max-w-none prose-headings:scroll-mt-20 prose-headings:tracking-tight prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-pre:border prose-pre:border-[#1e293b] prose-pre:bg-[#0d131f] prose-table:border prose-table:border-slate-800">
+      <slot />
+
+      <!-- Manga Cross-linking Flywheel Card -->
+      {post.data.relatedEpisodes && post.data.relatedEpisodes.length > 0 && (
+        <ChroniclesCrossLink episodes={post.data.relatedEpisodes} />
+      )}
+
+      <!-- Tags & Share -->
+      <div class="pt-6 border-t border-slate-800 flex flex-wrap items-center gap-2 my-8">
+        <span class="text-xs font-mono text-slate-400 mr-2">Tags:</span>
+        {post.data.tags.map(tag => (
+          <span class="px-2.5 py-1 rounded-md bg-slate-900 text-slate-300 border border-slate-800 text-xs font-mono">
+            #{tag}
+          </span>
+        ))}
+      </div>
+
+      <!-- Navigation back -->
+      <div class="pt-4 flex items-center justify-between text-xs">
+        <a href="/" class="inline-flex items-center gap-2 text-sky-400 hover:text-sky-300 font-medium">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          <span>Quay lại trang chủ bài viết</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- Sidebar: Sticky TOC -->
+    <aside class="hidden lg:block lg:col-span-4">
+      <div class="sticky top-24 space-y-6">
+        <TableOfContents headings={headings} />
+      </div>
+    </aside>
+  </div>
+
+  <CopyCodeScript />
+</BaseLayout>
+
+<style is:global>
+  /* Markdown table styling */
+  .prose table {
+    width: 100%;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-collapse: collapse;
+    font-size: 0.825rem;
+  }
+  .prose th {
+    background-color: #111827;
+    color: #e2e8f0;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border: 1px solid #1f293d;
+  }
+  .prose td {
+    padding: 0.75rem 1rem;
+    border: 1px solid #1f293d;
+    color: #94a3b8;
+  }
+  .prose tr:nth-child(even) {
+    background-color: #0c121e;
+  }
+</style>

@@ -1,0 +1,49 @@
+---
+// CopyCodeScript.astro - Client script to add copy buttons to all code blocks
+---
+
+<script>
+  function attachCopyButtons() {
+    const codeBlocks = document.querySelectorAll('pre');
+
+    codeBlocks.forEach((block) => {
+      // Avoid duplicate buttons
+      if (block.querySelector('.copy-code-btn')) return;
+
+      block.style.position = 'relative';
+
+      const button = document.createElement('button');
+      button.className = 'copy-code-btn absolute top-2.5 right-2.5 px-2 py-1 rounded bg-slate-800/80 hover:bg-slate-700 text-[11px] font-mono text-slate-300 border border-slate-700/60 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm cursor-pointer';
+      button.innerText = 'Copy';
+      button.setAttribute('aria-label', 'Copy code to clipboard');
+
+      // Make parent have group class
+      block.classList.add('group');
+
+      button.addEventListener('click', async () => {
+        const codeElement = block.querySelector('code');
+        const text = codeElement ? codeElement.innerText : block.innerText;
+        try {
+          await navigator.clipboard.writeText(text);
+          button.innerText = 'Copied!';
+          button.classList.add('text-sky-300', 'border-sky-500/50');
+          setTimeout(() => {
+            button.innerText = 'Copy';
+            button.classList.remove('text-sky-300', 'border-sky-500/50');
+          }, 2000);
+        } catch (err) {
+          button.innerText = 'Failed';
+        }
+      });
+
+      block.appendChild(button);
+    });
+  }
+
+  // Run on initial load and after view transitions
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', attachCopyButtons);
+  } else {
+    attachCopyButtons();
+  }
+</script>

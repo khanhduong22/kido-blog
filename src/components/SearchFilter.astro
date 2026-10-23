@@ -1,0 +1,118 @@
+---
+// SearchFilter.astro - Fast client-side category and keyword filter
+interface Props {
+  categories: string[];
+  activeCategory?: string;
+}
+
+const { categories = [], activeCategory = 'all' } = Astro.props;
+---
+
+<div class="search-filter-widget space-y-4 my-8">
+  <div class="relative max-w-xl">
+    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </div>
+    <input
+      type="text"
+      id="live-search-input"
+      placeholder="Tìm kiếm kiến trúc, thuật toán, công nghệ (NestJS, Valkey, CLS, PWA...)..."
+      class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#111827] border border-[#1f293d] focus:border-sky-500 focus:ring-1 focus:ring-sky-500 text-xs sm:text-sm text-slate-100 placeholder-slate-500 transition-all outline-none"
+    />
+  </div>
+
+  <div id="categories" class="flex flex-wrap items-center gap-2 pt-1">
+    <button
+      data-filter="all"
+      class="category-pill active-pill px-3 py-1.5 rounded-lg text-xs font-medium transition-all bg-sky-500/20 text-sky-300 border border-sky-500/40"
+    >
+      Tất Cả ({categories.length ? '8' : '0'})
+    </button>
+    {categories.map(cat => (
+      <button
+        data-filter={cat.toLowerCase()}
+        class="category-pill px-3 py-1.5 rounded-lg text-xs font-medium transition-all bg-slate-900/80 text-slate-400 border border-slate-800 hover:text-slate-200 hover:border-slate-700"
+      >
+        {cat}
+      </button>
+    ))}
+  </div>
+
+  <div id="filter-result-count" class="text-xs text-slate-500 font-mono hidden">
+    Hiển thị <span id="count-number" class="text-sky-400 font-semibold">0</span> bài viết
+  </div>
+</div>
+
+<script>
+  function setupSearchFilter() {
+    const input = document.getElementById('live-search-input') as HTMLInputElement | null;
+    const pills = document.querySelectorAll('.category-pill');
+    const cards = document.querySelectorAll('.article-card');
+    const resultCount = document.getElementById('filter-result-count');
+    const countNumber = document.getElementById('count-number');
+
+    let currentCategory = 'all';
+    let currentKeyword = '';
+
+    function applyFilter() {
+      let visible = 0;
+
+      cards.forEach((card) => {
+        const el = card as HTMLElement;
+        const title = el.getAttribute('data-title') || '';
+        const cat = el.getAttribute('data-category') || '';
+        const tags = el.getAttribute('data-tags') || '';
+        const desc = el.getAttribute('data-desc') || '';
+
+        const matchCategory = currentCategory === 'all' || cat === currentCategory;
+        const combined = `${title} ${cat} ${tags} ${desc}`;
+        const matchKeyword = !currentKeyword || combined.includes(currentKeyword);
+
+        if (matchCategory && matchKeyword) {
+          el.style.display = 'flex';
+          visible++;
+        } else {
+          el.style.display = 'none';
+        }
+      });
+
+      if (resultCount && countNumber) {
+        if (currentKeyword || currentCategory !== 'all') {
+          resultCount.classList.remove('hidden');
+          countNumber.innerText = visible.toString();
+        } else {
+          resultCount.classList.add('hidden');
+        }
+      }
+    }
+
+    if (input) {
+      input.addEventListener('input', (e) => {
+        currentKeyword = (e.target as HTMLInputElement).value.trim().toLowerCase();
+        applyFilter();
+      });
+    }
+
+    pills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => {
+          p.classList.remove('bg-sky-500/20', 'text-sky-300', 'border-sky-500/40', 'active-pill');
+          p.classList.add('bg-slate-900/80', 'text-slate-400', 'border-slate-800');
+        });
+        pill.classList.remove('bg-slate-900/80', 'text-slate-400', 'border-slate-800');
+        pill.classList.add('bg-sky-500/20', 'text-sky-300', 'border-sky-500/40', 'active-pill');
+
+        currentCategory = pill.getAttribute('data-filter') || 'all';
+        applyFilter();
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupSearchFilter);
+  } else {
+    setupSearchFilter();
+  }
+</script>

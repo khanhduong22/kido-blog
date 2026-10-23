@@ -1,0 +1,148 @@
+---
+// BaseLayout.astro - Root Shell, SEO Schema & Global Styles
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalUrl?: string;
+  type?: 'website' | 'article';
+  articleSchema?: Record<string, any>;
+}
+
+const {
+  title = "Kido Engineering Blog — Deep-Dive System Architecture & High-Concurrency Backend",
+  description = "Chuyên trang kỹ thuật cấp cao về kiến trúc phân tán, backend chịu tải cao, tối ưu hoá Google Core Web Vitals (0ms TBT, CLS 0.000) và DevOps thực chiến bởi Dương Phúc Khánh.",
+  image = "/images/tap-131.webp",
+  canonicalUrl = Astro.url.href,
+  type = "website",
+  articleSchema
+} = Astro.props;
+
+const siteUrl = "https://blog.khanhdp.com";
+const ogImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
+
+const baseSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://khanhdp.com/#person",
+      "name": "Dương Phúc Khánh",
+      "alternateName": ["khanhdp", "Kido"],
+      "url": "https://khanhdp.com",
+      "image": `${siteUrl}/logo.png`,
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q141718572",
+        "https://kg.google.com/g/11zyg5zq1c",
+        "https://orcid.org/0009-0005-7192-2664",
+        "https://github.com/khanhduong22",
+        "https://blog.khanhdp.com",
+        "https://truyen.khanhdp.com"
+      ],
+      "jobTitle": "Principal Software Engineer & Systems Architect",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Kido Infra & Engineering"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      "url": siteUrl,
+      "name": "Kido Engineering Blog",
+      "description": description,
+      "publisher": {
+        "@id": "https://khanhdp.com/#person"
+      },
+      "inLanguage": "vi-VN"
+    },
+    ...(articleSchema ? [articleSchema] : [])
+  ]
+};
+---
+
+<!doctype html>
+<html lang="vi" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="144x144" href="/favicon-144x144.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="Kido Engineering Blog" />
+    <meta property="og:locale" content="vi_VN" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Discovery & Feeds -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Kido Engineering Blog RSS" href="/rss.xml" />
+    <link rel="author" href="https://khanhdp.com" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(baseSchema)} />
+
+    <!-- Subpixel Font Smoothing -->
+    <style is:global>
+      body {
+        background-color: #0a0e17;
+        color: #f1f5f9;
+        font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      ::selection {
+        background: #0284c7;
+        color: #ffffff;
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0a0e17;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1e293b;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #334155;
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen flex flex-col font-sans selection:bg-sky-500 selection:text-white">
+    <Header />
+    <main class="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-8">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

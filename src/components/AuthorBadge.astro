@@ -1,0 +1,44 @@
+---
+// AuthorBadge.astro - Author info with verified credentials
+interface Props {
+  date?: string;
+  readingTime?: string;
+}
+
+const { date, readingTime } = Astro.props;
+---
+
+<div class="flex items-center justify-between flex-wrap gap-4 py-4 border-y border-[#1e293b]/70 my-6">
+  <div class="flex items-center gap-3.5">
+    <a href="https://khanhdp.com" target="_blank" rel="noopener noreferrer" class="shrink-0 group">
+      <img
+        src="/logo.png"
+        alt="Dương Phúc Khánh"
+        class="w-11 h-11 rounded-xl border border-sky-500/40 object-cover group-hover:scale-105 transition-transform"
+        width="44"
+        height="44"
+      />
+    </a>
+    <div>
+      <div class="flex items-center gap-2">
+        <a href="https://khanhdp.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-slate-100 hover:text-sky-300 transition-colors">
+          Dương Phúc Khánh
+        </a>
+        <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono bg-sky-950/80 text-sky-400 border border-sky-500/30">
+          Architect
+        </span>
+      </div>
+      <p class="text-xs text-slate-400">
+        Principal Software Engineer & Systems Architect • @khanhdp
+      </p>
+    </div>
+  </div>
+
+  {(date || readingTime) && (
+    <div class="flex items-center gap-3 text-xs font-mono text-slate-400">
+      {date && <span>Xuất bản: {date}</span>}
+      {date && readingTime && <span>•</span>}
+      {readingTime && <span class="text-sky-400">{readingTime}</span>}
+    </div>
+  )}
+</div>
