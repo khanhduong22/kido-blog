@@ -34,11 +34,28 @@ const formattedDate = new Intl.DateTimeFormat('vi-VN', {
   day: 'numeric'
 }).format(post.data.pubDate);
 
+const keywordsList = [
+  "Dương Phúc Khánh",
+  "Duong Phuc Khanh",
+  "khanhdp",
+  "Kido",
+  post.data.category,
+  ...post.data.tags
+].join(', ');
+
+const isBasedOnLinks = (post.data.relatedEpisodes || []).map(item => ({
+  "@type": "TechArticle",
+  "name": `Tập ${item.ep}: ${item.title} — Kido Chronicles`,
+  "url": `https://truyen.khanhdp.com/tap/${item.slug.replace(/^tap\//, '')}/`
+}));
+
 const articleSchema = {
   "@type": "TechArticle",
   "@id": `${currentUrl}#article`,
   "headline": post.data.title,
+  "name": `${post.data.title} — Dương Phúc Khánh (khanhdp · Kido)`,
   "description": post.data.description,
+  "articleSection": post.data.category,
   "image": `https://blog.khanhdp.com${post.data.cover}`,
   "datePublished": post.data.pubDate.toISOString(),
   "dateModified": (post.data.updatedDate || post.data.pubDate).toISOString(),
@@ -48,19 +65,35 @@ const articleSchema = {
   "publisher": {
     "@id": "https://khanhdp.com/#person"
   },
+  "isPartOf": {
+    "@id": "https://blog.khanhdp.com/#website"
+  },
+  ...(isBasedOnLinks.length > 0 ? { "isBasedOn": isBasedOnLinks } : {}),
   "mainEntityOfPage": currentUrl,
   "inLanguage": "vi-VN",
-  "keywords": post.data.tags.join(', ')
+  "keywords": keywordsList
+};
+
+const breadcrumbSchema = {
+  "@type": "BreadcrumbList",
+  "@id": `${currentUrl}#breadcrumb`,
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Dương Phúc Khánh (khanhdp)", "item": "https://khanhdp.com" },
+    { "@type": "ListItem", "position": 2, "name": "Kido Engineering Blog", "item": "https://blog.khanhdp.com" },
+    { "@type": "ListItem", "position": 3, "name": post.data.title, "item": currentUrl }
+  ]
 };
 ---
 
 <BaseLayout
-  title={`${post.data.title} — Kido Engineering`}
+  title={`${post.data.title} — Dương Phúc Khánh (khanhdp · Kido) | Kido Engineering`}
   description={post.data.description}
+  keywords={keywordsList}
   image={post.data.cover}
   canonicalUrl={currentUrl}
   type="article"
   articleSchema={articleSchema}
+  extraSchemas={[breadcrumbSchema]}
 >
   <!-- Breadcrumbs -->
   <nav class="flex items-center gap-2 text-xs font-mono text-slate-400 mb-6">
@@ -130,6 +163,39 @@ const articleSchema = {
       {post.data.relatedEpisodes && post.data.relatedEpisodes.length > 0 && (
         <ChroniclesCrossLink episodes={post.data.relatedEpisodes} />
       )}
+
+      <!-- B2B Enterprise Architecture & Turnkey Software Hub Callout -->
+      <div class="not-prose my-8 p-6 rounded-2xl bg-slate-900/80 border border-sky-500/25 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="space-y-1.5">
+          <div class="text-[11px] font-mono uppercase tracking-wider text-sky-400 font-semibold">
+            ⚡ Enterprise Architecture & Turnkey B2B Systems
+          </div>
+          <h3 class="text-sm sm:text-base font-bold text-slate-100">
+            Cần tư vấn Kiến trúc Hệ thống Chịu tải cao, AI Automation hoặc Phần mềm B2B trọn gói?
+          </h3>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-xl">
+            Khám phá 35 bộ thư viện hạ tầng <code class="text-sky-300">@kt/*</code> và 18 giải pháp Web App/ERP bàn giao 100% mã nguồn do Kỹ sư Hệ thống <strong>Dương Phúc Khánh (Kido)</strong> thiết kế.
+          </p>
+        </div>
+        <div class="flex items-center gap-2.5 shrink-0">
+          <a
+            href="https://khanhdp.com/portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-3.5 py-2 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs transition-colors"
+          >
+            18 Giải Pháp B2B ↗
+          </a>
+          <a
+            href="https://khanhdp.com/about"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs transition-colors"
+          >
+            Tiểu sử Kido
+          </a>
+        </div>
+      </div>
 
       <!-- Tags & Share -->
       <div class="pt-6 border-t border-slate-800 flex flex-wrap items-center gap-2 my-8">

@@ -6,19 +6,23 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title?: string;
   description?: string;
+  keywords?: string;
   image?: string;
   canonicalUrl?: string;
   type?: 'website' | 'article';
   articleSchema?: Record<string, any>;
+  extraSchemas?: Record<string, any>[];
 }
 
 const {
-  title = "Kido Engineering Blog — Deep-Dive System Architecture & High-Concurrency Backend",
-  description = "Chuyên trang kỹ thuật cấp cao về kiến trúc phân tán, backend chịu tải cao, tối ưu hoá Google Core Web Vitals (0ms TBT, CLS 0.000) và DevOps thực chiến bởi Dương Phúc Khánh.",
+  title = "Kido Engineering Blog — Deep-Dive System Architecture & High-Concurrency Backend | Dương Phúc Khánh (khanhdp)",
+  description = "Chuyên trang kỹ thuật cấp cao về kiến trúc phân tán, backend chịu tải cao, tối ưu hoá Google Core Web Vitals (0ms TBT, CLS 0.000) và DevOps thực chiến bởi Dương Phúc Khánh (Duong Phuc Khanh · khanhdp · Kido).",
+  keywords = "Dương Phúc Khánh, Duong Phuc Khanh, khanhdp, Kido, Systems Architect, System Design, High-Concurrency Backend, PostgreSQL, Valkey, Redis, Core Web Vitals, Agentic AI",
   image = "/images/tap-131.webp",
   canonicalUrl = Astro.url.href,
   type = "website",
-  articleSchema
+  articleSchema,
+  extraSchemas = []
 } = Astro.props;
 
 const siteUrl = "https://blog.khanhdp.com";
@@ -31,35 +35,65 @@ const baseSchema = {
       "@type": "Person",
       "@id": "https://khanhdp.com/#person",
       "name": "Dương Phúc Khánh",
-      "alternateName": ["khanhdp", "Kido"],
-      "url": "https://khanhdp.com",
-      "image": `${siteUrl}/logo.png`,
-      "sameAs": [
-        "https://www.wikidata.org/wiki/Q141718572",
-        "https://kg.google.com/g/11zyg5zq1c",
-        "https://orcid.org/0009-0005-7192-2664",
-        "https://github.com/khanhduong22",
-        "https://blog.khanhdp.com",
-        "https://truyen.khanhdp.com"
+      "alternateName": [
+        "Duong Phuc Khanh",
+        "Kido",
+        "Khánh Dương",
+        "khanhdp",
+        "khanhduong22",
+        "phuckhanh22",
+        "kode.x.kido",
+        "kodexkido"
       ],
-      "jobTitle": "Principal Software Engineer & Systems Architect",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Kido Infra & Engineering"
-      }
+      "jobTitle": "Senior Software Engineer & Systems Architect",
+      "birthDate": "1995",
+      "url": "https://khanhdp.com",
+      "image": "https://khanhdp.com/duong-phuc-khanh.jpg",
+      "email": "mailto:phuckhanh22@gmail.com",
+      "identifier": [
+        { "@type": "PropertyValue", "propertyID": "Google Knowledge Graph ID", "value": "/g/11zyg5zq1c" },
+        { "@type": "PropertyValue", "propertyID": "Wikidata", "value": "Q141718572" },
+        { "@type": "PropertyValue", "propertyID": "ORCID", "value": "0009-0005-7192-2664" }
+      ],
+      "sameAs": [
+        "https://khanhdp.com",
+        "https://khanhdp.com/about",
+        "https://khanhdp.com/portfolio",
+        "https://www.google.com/search?kgmid=/g/11zyg5zq1c",
+        "https://www.wikidata.org/wiki/Q141718572",
+        "https://orcid.org/0009-0005-7192-2664",
+        "https://www.linkedin.com/in/duong-phuc-khanh/",
+        "https://x.com/duongphuckhanh",
+        "https://github.com/khanhduong22",
+        "https://www.youtube.com/@kodexkido",
+        "https://www.tiktok.com/@kode.x.kido",
+        "https://www.facebook.com/khanhduong2295/",
+        "https://www.facebook.com/kode.x.kido",
+        "https://blog.khanhdp.com",
+        "https://truyen.khanhdp.com",
+        "https://md.khanhdp.com",
+        "https://viblo.asia/u/khanhdp",
+        "https://dev.to/khanhduong22",
+        "https://medium.com/@khanhduong22",
+        "https://khanhdp.hashnode.dev"
+      ]
     },
     {
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
       "url": siteUrl,
-      "name": "Kido Engineering Blog",
+      "name": "Kido Engineering Blog — Dương Phúc Khánh (khanhdp · Kido)",
       "description": description,
+      "author": {
+        "@id": "https://khanhdp.com/#person"
+      },
       "publisher": {
         "@id": "https://khanhdp.com/#person"
       },
       "inLanguage": "vi-VN"
     },
-    ...(articleSchema ? [articleSchema] : [])
+    ...(articleSchema ? [articleSchema] : []),
+    ...extraSchemas
   ]
 };
 ---
@@ -71,6 +105,8 @@ const baseSchema = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Dương Phúc Khánh (khanhdp · Kido)" />
     <link rel="canonical" href={canonicalUrl} />
 
     <!-- Favicons -->
@@ -101,6 +137,41 @@ const baseSchema = {
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="alternate" type="application/rss+xml" title="Kido Engineering Blog RSS" href="/rss.xml" />
     <link rel="author" href="https://khanhdp.com" />
+
+    <!-- @kt/deferred-telemetry: Zero-TBT Pure Interaction-Driven Lossless Telemetry -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-RMEP3RZB14');
+      window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      window.clarity = window.clarity || function() { (window.clarity.q = window.clarity.q || []).push(arguments); };
+      (function(w, d) {
+        var isLoaded = false;
+        function injectScript(src, id) {
+          if (id && d.getElementById(id)) return;
+          if (d.querySelector('script[src="' + src + '"]')) return;
+          var s = d.createElement('script');
+          s.async = true;
+          s.src = src;
+          if (id) s.id = id;
+          (d.head || d.body).appendChild(s);
+        }
+        var events = ['scroll', 'touchstart', 'pointerdown', 'keydown', 'wheel'];
+        function triggerDeferredLoad() {
+          if (isLoaded) return;
+          isLoaded = true;
+          events.forEach(function(e) { w.removeEventListener(e, triggerDeferredLoad); });
+          injectScript('https://www.googletagmanager.com/gtag/js?id=G-RMEP3RZB14', 'ga4-deferred-script');
+          injectScript('https://www.googletagmanager.com/gtm.js?id=GTM-NXV7B355', 'gtm-deferred-script');
+          injectScript('https://www.clarity.ms/tag/yy4l1xv1a9', 'clarity-deferred-script');
+        }
+        events.forEach(function(e) {
+          w.addEventListener(e, triggerDeferredLoad, { passive: true, once: true });
+        });
+      })(window, document);
+    </script>
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(baseSchema)} />

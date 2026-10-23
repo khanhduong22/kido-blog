@@ -17,7 +17,7 @@ export const GET: APIRoute = async (context) => {
       description: post.data.description,
       link: `/blog/${post.id.replace(/\.md$/, '')}/`,
       categories: [post.data.category, ...post.data.tags],
-      author: 'khanhdp2202@gmail.com (Dương Phúc Khánh)',
+      author: 'phuckhanh22@gmail.com (Dương Phúc Khánh)',
     })),
     customData: `<language>vi-VN</language>`,
   });
