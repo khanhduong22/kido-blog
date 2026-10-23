@@ -22,6 +22,12 @@ relatedEpisodes:
   - ep: 48
     title: "Cái chết của IndexedDB iOS Safari"
     slug: "tap-48-cai-chet-cua-indexeddb-ios-safari"
+  - ep: 82
+    title: "Chuyến tàu ngầm Web Push trên iOS Safari 16.4+"
+    slug: "tap-82-chuyen-tau-ngam-web-push-ios-safari"
+  - ep: 83
+    title: "Bài học Caching Service Worker F5 trong vô vọng"
+    slug: "tap-83-bai-hoc-caching-service-worker-f5-trong-vo-vong"
 ---
 
 Tại thị trường Đông Nam Á và Việt Nam, hơn 75% lưu lượng truy cập ban đầu vào các trang web xuất phát từ việc người dùng nhấn vào liên kết được chia sẻ trên Facebook, Messenger, Zalo hoặc TikTok. Lúc này, người dùng không duyệt web bằng Chrome hay Safari chính thống, mà bị "giam cầm" trong trình duyệt nhúng tạm thời (In-App WebView).

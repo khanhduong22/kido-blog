@@ -13,6 +13,9 @@ relatedEpisodes:
   - ep: 2
     title: "Ca mổ sống zero downtime"
     slug: "tap-2-ca-mo-song-zero-downtime"
+  - ep: 18
+    title: "Mở Dozzle xem log và 6 mảnh đời Docker"
+    slug: "tap-18-mo-dozzle-va-6-manh-doi-docker"
   - ep: 19
     title: "Chiến dịch Monorepo"
     slug: "tap-19-chien-dich-monorepo"
@@ -28,6 +31,12 @@ relatedEpisodes:
   - ep: 38
     title: "Va chạm trên đường băng deploy"
     slug: "tap-38-va-cham-tren-duong-bang-deploy"
+  - ep: 106
+    title: "Nỗi đau 6 cụm Staging phân mảnh"
+    slug: "tap-106-noi-dau-6-cum-staging-phan-manh"
+  - ep: 114
+    title: "Khai tử Nginx Portfolio & tuyệt kỹ Caddy Native File Server"
+    slug: "tap-114-voi-caddy-roi-thi-caddy-het-khai-tu-nginx-portfolio"
 ---
 
 Nhiều startup thường lãng phí hàng ngàn USD mỗi tháng cho các cụm máy chủ đám mây đắt đỏ (AWS ECS, Kubernetes đa node) ngay từ khi lượng truy cập thực tế mới ở mức vài triệu lượt xem mỗi tháng. Ngược lại, việc ép toàn bộ hệ thống gồm hơn 30 container dịch vụ (Backend APIs, Cơ sở dữ liệu PostgreSQL, Valkey Caches, Nginx, Uptime Monitoring, Observability) chạy trên một máy chủ ảo VPS giá rẻ (4 vCPU, 8GB RAM, NVMe SSD) đòi hỏi một trình độ làm chủ hệ thống ở cấp độ nhân Linux (Kernel).

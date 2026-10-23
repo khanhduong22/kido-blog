@@ -10,6 +10,9 @@ author: "Dương Phúc Khánh"
 featured: true
 tags: ["Distributed Systems", "Timezone", "Cloudflare", "Security", "PostgreSQL", "Architecture"]
 relatedEpisodes:
+  - ep: 87
+    title: "Chiếc bẫy Timezone trên máy chủ Đức Contabo"
+    slug: "tap-87-chiec-bay-timezone-may-chu-duc-contabo"
   - ep: 128
     title: "Vụ án dậy từ 4h45 sáng học 6 tiếng nhưng mất điểm và cú bẫy treo máy 04h30"
     slug: "tap-128-vu-an-day-tu-4h45-sang-hoc-6-tieng-nhung-mat-diem-va-cu-bay-treo-may-04h30"

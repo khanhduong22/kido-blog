@@ -1,0 +1,56 @@
+name: Build & Deploy Kido Engineering Blog to VPS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-kido-blog
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    name: Build & Deploy Astro 5 Blog
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile || bun install
+
+      - name: Build Astro 5 Static Blog
+        run: |
+          bun run build
+          tar -czf blog-dist.tar.gz -C dist .
+
+      - name: Upload bundle to Contabo VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "blog-dist.tar.gz"
+          target: "/tmp"
+
+      - name: Atomic Extract & Sync to Caddy Static Root
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            set -e
+            rm -rf /opt/kido-blog/dist
+            mkdir -p /opt/kido-blog/dist /opt/kido-infra/docker/portfolio/html/apps/blog
+            tar -xzf /tmp/blog-dist.tar.gz -C /opt/kido-blog/dist
+            rsync -a --delete /opt/kido-blog/dist/ /opt/kido-infra/docker/portfolio/html/apps/blog/
+            rm -f /tmp/blog-dist.tar.gz
+            echo "✅ Kido Engineering Blog deployed to https://blog.khanhdp.com!"

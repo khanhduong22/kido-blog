@@ -25,6 +25,18 @@ relatedEpisodes:
   - ep: 47
     title: "Bão rác Sentry"
     slug: "tap-47-bao-rac-sentry"
+  - ep: 52
+    title: "Bản án 338 dòng SQL lúc 05h45 sáng"
+    slug: "tap-52-ban-an-338-dong-sql"
+  - ep: 58
+    title: "Vụ án kiểm toán 10 ngày dưới kính hiển vi"
+    slug: "tap-58-vu-an-duy-nguyen-kiem-toan-10-ngay"
+  - ep: 59
+    title: "Tổ trọng tài Facebook & nút báo cáo cộng đồng"
+    slug: "tap-59-to-trong-tai-facebook"
+  - ep: 73
+    title: "Cuộc giải cứu điểm số từ dấu vết Audit"
+    slug: "tap-73-cuoc-giai-cuu-khang-tran"
   - ep: 130
     title: "Vụ án 3 tiếng rưỡi học tập bốc hơi của Sơn Đinh và cơn ác mộng đốt 4.6 triệu spans Sentry"
     slug: "tap-130-vu-an-3-tieng-ruoi-hoc-tap-boc-hoi-cua-son-dinh-va-con-ac-mong-dot-4-6-trieu-spans-sentry"

@@ -103,6 +103,27 @@ const articleSchema = {
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
     <!-- Main Content Area -->
     <article class="lg:col-span-8 min-w-0 prose prose-invert prose-slate max-w-none prose-headings:scroll-mt-20 prose-headings:tracking-tight prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline prose-pre:border prose-pre:border-[#1e293b] prose-pre:bg-[#0d131f] prose-table:border prose-table:border-slate-800">
+      {post.data.relatedEpisodes && post.data.relatedEpisodes.length > 0 && (
+        <div class="not-prose mb-8 p-4 rounded-xl bg-amber-950/20 border border-amber-500/30 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-2.5 text-xs sm:text-sm text-amber-200/90">
+            <span class="text-base">🎭</span>
+            <span>Bài phân tích kỹ thuật cho câu chuyện thực chiến tại <strong>Kido Chronicles</strong>:</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            {post.data.relatedEpisodes.map(ep => (
+              <a
+                href={`https://truyen.khanhdp.com/tap/${ep.slug.replace(/^tap\//, '')}/`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-2.5 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/30 text-amber-300 font-mono text-xs font-semibold transition-colors"
+                title={ep.title}
+              >
+                📖 Tập {ep.ep} ↗
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
       <slot />
 
       <!-- Manga Cross-linking Flywheel Card -->

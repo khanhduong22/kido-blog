@@ -19,11 +19,23 @@ relatedEpisodes:
   - ep: 50
     title: "Microsoft Clarity phát súng bóp nghẹt LCP"
     slug: "tap-50-microsoft-clarity-phat-sung-bop-nghet-lcp"
+  - ep: 115
+    title: "Bắt ma Web Vitals trên Sentry"
+    slug: "tap-115-bat-ma-web-vitals-sentry-va-bi-mat-30-giay"
+  - ep: 119
+    title: "Bóp cổ Eager Auth & trảm sạch Material Symbols"
+    slug: "tap-119-bop-co-eager-auth-va-tram-sach-material-symbols-interaction-driven-auth"
+  - ep: 120
+    title: "Xoá bỏ loading.tsx của Next.js & Frame-0 Skeleton"
+    slug: "tap-120-xoa-bo-loading-tsx-cua-nextjs-bi-kip-zero-streaming-fallback-va-frame-0-skeleton"
+  - ep: 121
+    title: "Đại di cư Monorepo lên Full Bun & chặt đứt Long Task 205ms"
+    slug: "tap-121-dai-di-cu-monorepo-len-full-bun-chat-dut-long-task-205ms-va-day-lcp-ve-frame-2"
   - ep: 126
-    title: "Nghệ thuật xẻ thịt God-File 2000 dòng và tuyệt kỹ Tab Preloader"
+    title: "Nghệ thuật xẻ thịt God-File 2.000 dòng & Tab Preloader"
     slug: "tap-126-nghe-thuat-xe-thit-god-file-2000-dong-va-tuyet-ky-tab-preloader"
   - ep: 127
-    title: "Tuyệt kỹ font tiểu phẫu tiễn Latin-Ext về vườn và Arial Fallback zero CLS"
+    title: "Tuyệt kỹ Font tiểu phẫu & Arial Fallback Zero-CLS"
     slug: "tap-127-tuyet-ky-font-tieu-phau-tien-latin-ext-ve-vuon-va-arial-fallback-zero-cls"
 ---
 

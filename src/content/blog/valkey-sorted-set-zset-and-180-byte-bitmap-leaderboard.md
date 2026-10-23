@@ -16,6 +16,12 @@ relatedEpisodes:
   - ep: 17
     title: "Fast session token bridge"
     slug: "tap-17-fast-session-token-bridge"
+  - ep: 71
+    title: "Chiếc phao cứu sinh 30 giây Valkey Cache-Aside"
+    slug: "tap-71-chiec-phao-cuu-sinh-30-giay-valkey"
+  - ep: 81
+    title: "Tách dòng máu Staging & Prod trên Valkey"
+    slug: "tap-81-phan-chia-dong-mau-valkey-staging-prod"
   - ep: 113
     title: "Vụ án 3 tiếng deep work bốc hơi và chiếc phao cứu sinh 944 điểm"
     slug: "tap-113-vu-an-3-tieng-deep-work-boc-hoi-va-chiec-phao-cuu-sinh-944-diem"

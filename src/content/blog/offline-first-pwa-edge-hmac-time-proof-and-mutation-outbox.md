@@ -10,6 +10,9 @@ author: "Dương Phúc Khánh"
 featured: false
 tags: ["PWA", "Offline-First", "Cryptography", "Cloudflare Workers", "IndexedDB", "HMAC"]
 relatedEpisodes:
+  - ep: 28
+    title: "Chiếc hộp Offline Outbox & Minutes Bitmap"
+    slug: "tap-28-offline-outbox-va-minutes-bitmap"
   - ep: 31
     title: "Tử huyệt của PWA"
     slug: "tap-31-tu-huyet-cua-pwa"
@@ -25,12 +28,18 @@ relatedEpisodes:
   - ep: 35
     title: "Đồng hồ đếm ngược 120s Nonce"
     slug: "tap-35-dong-ho-dem-nguoc-120s-nonce"
+  - ep: 36
+    title: "Cơn ác mộng cháy ví & Rate Limit tại biên"
+    slug: "tap-36-con-ac-mong-chay-vi-rate-limit"
   - ep: 37
     title: "Universal Mutation Outbox"
     slug: "tap-37-universal-mutation-outbox"
   - ep: 39
     title: "Phòng thủ đa tầng kiến trúc nhà nghèo"
     slug: "tap-39-phong-thu-da-tang-kien-truc-nha-ngheo"
+  - ep: 111
+    title: "Tiếng kêu cứu lúc 04h48 & chiếc bẫy TIME_PROOF_SECRET"
+    slug: "tap-111-tieng-keu-cuu-luc-04h48-cua-minh-chu-va-chiec-bay-time-proof-secret"
 ---
 
 Xây dựng ứng dụng Progressive Web App (PWA) hỗ trợ làm việc ngoại tuyến (Offline-First) luôn là một con dao hai lưỡi. Một mặt, người dùng có thể thao tác mượt mà trong tầng hầm gửi xe, phòng gym không sóng điện thoại hoặc trên máy bay mà không gặp tình trạng màn hình xoay tròn vô tận. Mặt khác, một khi máy khách bị ngắt kết nối khỏi máy chủ, toàn bộ ranh giới tin cậy (Trust Boundary) sụp đổ.
