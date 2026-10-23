@@ -3,7 +3,7 @@ title: "Quản Trị Vòng Đời Docker Production: Native HEALTHCHECK, Di Tả
 description: "Chuyên sâu về quản trị container và lưu trữ Docker trong sản xuất: Kiểm soát trạng thái ứng dụng với Native HEALTHCHECK, an toàn di tản dữ liệu Named Volume, làm sạch phân vùng ổ cứng tự động và giải phẫu cơ chế biến môi trường Next.js."
 pubDate: 2026-10-23
 category: "Docker Internals, Storage & CI/CD"
-cover: "/images/tap-21.jpg"
+cover: "https://cdn.khanhdp.com/chronicles/tap-21.webp"
 coverAlt: "Quản trị vòng đời Docker Production: Native HEALTHCHECK, Migration Named Volume, Dọn rác Dangling Image và Biến môi trường Next.js"
 readingTime: "13 phút đọc"
 author: "Dương Phúc Khánh"

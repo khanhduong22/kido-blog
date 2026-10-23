@@ -3,7 +3,7 @@ title: "Multi-Temporal Tenancy & Khiên 4 Lớp Chống Hack Múi Giờ (Kiến 
 description: "Phân tích kiến trúc đa múi giờ (Multi-Temporal Tenancy), xử lý bẫy ICU timezone, Cloudflare IP header spoofing và cơ chế quét dải bucket O(1) chống sập database nửa đêm."
 pubDate: 2026-10-23
 category: "Distributed Systems & Security"
-cover: "/images/tap-131.webp"
+cover: "https://cdn.khanhdp.com/chronicles/tap-131.webp"
 coverAlt: "Minh họa kiến trúc Multi-Temporal Tenancy và Khiên 4 Lớp Chống Hack Múi Giờ"
 readingTime: "12 phút đọc"
 author: "Dương Phúc Khánh"

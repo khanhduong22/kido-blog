@@ -3,7 +3,7 @@ title: "Tinh Chỉnh Caddy 2 & Cloudflare Edge Ở Cấp Độ Giao Thức: Phá
 description: "Chuyên sâu về tối ưu hoá reverse proxy Caddy 2 và Cloudflare Edge: Triệt tiêu hiện tượng đệm SSE đóng băng Dozzle logs, xử lý OPTIONS CORS preflight tức thì tại tầng mạng và làm nóng kết nối với 103 Early Hints."
 pubDate: 2026-10-23
 category: "Networking, Reverse Proxy & Edge Protocols"
-cover: "/images/tap-19.jpg"
+cover: "https://cdn.khanhdp.com/chronicles/tap-19.webp"
 coverAlt: "Tinh chỉnh Caddy 2 và Cloudflare Edge: Server-Sent Events flush_interval, CORS Preflight 204 và 103 Early Hints"
 readingTime: "12 phút đọc"
 author: "Dương Phúc Khánh"

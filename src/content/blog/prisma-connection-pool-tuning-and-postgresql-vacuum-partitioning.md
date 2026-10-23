@@ -3,7 +3,7 @@ title: "Giải Cứu PostgreSQL Lúc 05:58 Sáng: Tinh Chỉnh Prisma Connection
 description: "Cẩm nang tối ưu hóa cơ sở dữ liệu PostgreSQL và Prisma ORM dưới tải thực chiến: Định cỡ connection pool khoa học, cài đặt phanh khẩn cấp 100ms cho slow query, trị tận gốc bloat bằng autovacuum và clone DB staging trong 1 giây."
 pubDate: 2026-10-23
 category: "Database Engineering & PostgreSQL Internals"
-cover: "/images/tap-26.jpg"
+cover: "https://cdn.khanhdp.com/chronicles/tap-26.webp"
 coverAlt: "Tối ưu PostgreSQL: Prisma Connection Pool, Slow Query Circuit Breaker và Autovacuum Partitioning"
 readingTime: "14 phút đọc"
 author: "Dương Phúc Khánh"

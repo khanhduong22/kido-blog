@@ -3,7 +3,7 @@ title: "Chinh Phục 100/100 Google Lighthouse (0ms TBT, CLS 0.000): Sub-Pixel F
 description: "Bí quyết đạt điểm tuyệt đối 100/100 Google Core Web Vitals: Triệt tiêu hoàn toàn giật cục layout CLS bằng CSS font metric overrides và kỹ thuật dời tải third-party SDKs."
 pubDate: 2026-10-23
 category: "Frontend Performance & Core Web Vitals"
-cover: "/images/tap-50.webp"
+cover: "https://cdn.khanhdp.com/chronicles/tap-50.webp"
 coverAlt: "Chinh phục điểm số 100/100 Google Lighthouse và tối ưu Core Web Vitals"
 readingTime: "11 phút đọc"
 author: "Dương Phúc Khánh"

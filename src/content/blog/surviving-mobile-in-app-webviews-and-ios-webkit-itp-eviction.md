@@ -3,7 +3,7 @@ title: "Vượt Ngục Mobile In-App Browser (Facebook/Zalo OAuth 403 Breakout) 
 description: "Chiến lược sinh tồn cho Web App trên thiết bị di động: Phá rào cản In-App WebView của mạng xã hội để đăng nhập Google OAuth và cơ chế bảo vệ dữ liệu trước chính sách xóa sổ của Apple iOS ITP."
 pubDate: 2026-10-23
 category: "Mobile Web Engineering & iOS WebKit"
-cover: "/images/tap-48.webp"
+cover: "https://cdn.khanhdp.com/chronicles/tap-48.webp"
 coverAlt: "Vượt ngục Mobile In-App Browser và bảo vệ IndexedDB trên iOS WebKit"
 readingTime: "11 phút đọc"
 author: "Dương Phúc Khánh"

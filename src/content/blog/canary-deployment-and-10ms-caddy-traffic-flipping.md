@@ -3,7 +3,7 @@ title: "Chiến Thuật Canary Deployment & Đảo Chiều Lưu Lượng Trong 1
 description: "Kỹ thuật phát hành Canary và điều phối lưu lượng đỉnh cao trên máy chủ đơn: Kiểm soát rủi ro bằng Feature Flags thời gian thực, xử lý phân nhánh mã nguồn 36 commits lệch và xoay trục upstream Caddy trong 10ms."
 pubDate: 2026-10-23
 category: "Release Engineering & High Availability"
-cover: "/images/tap-38.jpg"
+cover: "https://cdn.khanhdp.com/chronicles/tap-38.webp"
 coverAlt: "Canary Deployment và đảo chiều lưu lượng Caddy trong 10ms, Feature Flag và High-Availability Backup Domain"
 readingTime: "14 phút đọc"
 author: "Dương Phúc Khánh"

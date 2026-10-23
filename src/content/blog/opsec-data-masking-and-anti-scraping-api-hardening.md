@@ -3,7 +3,7 @@ title: "Bảo Mật OPSEC & Chống Cào Dữ Liệu (Anti-Scraping): Ẩn Quy M
 description: "Phân tích rủi ro lộ bí mật kinh doanh qua bài toán German Tank Problem, kỹ thuật DTO Projection che giấu dữ liệu trên NestJS, bảo vệ log Dozzle và trói chặt PostgreSQL sau tường lửa DOCKER-USER."
 pubDate: 2026-10-23
 category: "Security, OPSEC & Infrastructure Hardening"
-cover: "/images/tap-29.jpg"
+cover: "https://cdn.khanhdp.com/chronicles/tap-29.webp"
 coverAlt: "Bảo mật OPSEC, chống cào dữ liệu và trói chặt PostgreSQL vào localhost"
 readingTime: "13 phút đọc"
 author: "Dương Phúc Khánh"

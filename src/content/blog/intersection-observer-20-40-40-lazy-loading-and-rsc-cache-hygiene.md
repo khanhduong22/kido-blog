@@ -3,7 +3,7 @@ title: "Kỹ Thuật Render 20-40-40 Bằng IntersectionObserver, Service Worker
 description: "Chuyên sâu về hiệu năng frontend và Next.js App Router: Phá vỡ nút thắt nghẽn CPU render 100 hàng bằng thuật toán phân đoạn 20-40-40, tăng tốc tải trang 0-RTT với Service Worker Navigation Preload và ngăn ngừa thảm họa biến trang web thành chuỗi văn bản Flight thô."
 pubDate: 2026-10-23
 category: "Frontend Rendering, PWA & Next.js Internals"
-cover: "/images/tap-14.jpg"
+cover: "https://cdn.khanhdp.com/chronicles/tap-14.webp"
 coverAlt: "Kỹ thuật Render 20-40-40 bằng IntersectionObserver, Service Worker v7 Navigation Preload và chống đầu độc Next.js RSC Cache"
 readingTime: "13 phút đọc"
 author: "Dương Phúc Khánh"

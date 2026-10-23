@@ -3,7 +3,7 @@ title: "Vận Hành 30+ Container Production Trên VPS 8GB RAM: Zero-Downtime Ca
 description: "Nghệ thuật tối ưu hạ tầng chi phí thấp nhưng đạt độ ổn định 99.99%: Cấu hình Caddy reload không gián đoạn, ngăn chặn va chạm DNS Docker và thuật toán kiểm soát bộ nhớ Linux kernel."
 pubDate: 2026-10-23
 category: "DevOps, Linux Kernel & Infrastructure"
-cover: "/images/tap-22.webp"
+cover: "https://cdn.khanhdp.com/chronicles/tap-22.webp"
 coverAlt: "Vận hành 30+ container trên VPS 8GB RAM với Caddy và tối ưu Linux kernel"
 readingTime: "11 phút đọc"
 author: "Dương Phúc Khánh"

@@ -3,7 +3,7 @@ title: "Kiến Trúc Offline-First PWA Chống Gian Lận: Ngọn Hải Đăng C
 description: "Giải pháp toàn diện cho ứng dụng Progressive Web App hoạt động không cần mạng nhưng vẫn đảm bảo tính toàn vẹn dữ liệu, chống tua ngược thời gian và ngăn chặn tấn công phát lại."
 pubDate: 2026-10-23
 category: "Edge Computing & Cryptography"
-cover: "/images/tap-33.webp"
+cover: "https://cdn.khanhdp.com/chronicles/tap-33.webp"
 coverAlt: "Kiến trúc Offline-First PWA với Ngọn Hải Đăng Cloudflare Edge HMAC và Mutation Outbox"
 readingTime: "13 phút đọc"
 author: "Dương Phúc Khánh"

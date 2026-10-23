@@ -3,7 +3,7 @@ title: "Triệt Tiêu Race Condition & F12 Payload Tampering: Kiến Trúc Zero-
 description: "Phòng thủ toàn diện trước các kỹ thuật tấn công can thiệp payload trình duyệt và lỗi chạy đua bất đồng bộ: Từ NestJS ValidationPipe nghiêm ngặt đến cơ chế khóa phiên bản lạc quan."
 pubDate: 2026-10-23
 category: "Backend Architecture & Concurrency"
-cover: "/images/tap-6.webp"
+cover: "https://cdn.khanhdp.com/chronicles/tap-6.webp"
 coverAlt: "Kiến trúc phòng thủ Zero-Trust NestJS và khóa nguyên tử PostgreSQL"
 readingTime: "12 phút đọc"
 author: "Dương Phúc Khánh"

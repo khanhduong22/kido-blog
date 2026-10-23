@@ -3,7 +3,7 @@ title: "Đại Phẫu Thuật State Management: Chặn Đứng 4 Request Trùng 
 description: "Phân tích kiến trúc chuyển đổi toàn diện từ Redux sang TanStack Query + Zustand: Cơ chế triệt tiêu 4 request trùng lặp (In-Flight Deduplication), xóa sổ lỗi Redux State Rollover nửa đêm và tối giản 6.400 dòng boilerplate."
 pubDate: 2026-10-23
 category: "Frontend Architecture & State Management"
-cover: "/images/tap-43.jpg"
+cover: "https://cdn.khanhdp.com/chronicles/tap-43.webp"
 coverAlt: "Đại Phẫu Thuật State Management: In-Flight Request Deduplication, Zustand và TanStack Query"
 readingTime: "12 phút đọc"
 author: "Dương Phúc Khánh"

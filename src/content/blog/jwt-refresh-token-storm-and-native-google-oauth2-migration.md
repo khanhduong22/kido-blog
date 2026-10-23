@@ -3,7 +3,7 @@ title: "Dập Tắt Bão 401 Refresh Token Mỗi Sáng Bằng In-Flight Promise 
 description: "Giải mã cơ chế bão 401 thundering herd khi quay vòng Refresh Token, giải pháp In-Flight Promise Deduplication và hành trình cắt bỏ 180KB Firebase Auth SDK chuyển sang Native Google OAuth 2.0."
 pubDate: 2026-10-23
 category: "Authentication, Security & Distributed Identity"
-cover: "/images/tap-16.jpg"
+cover: "https://cdn.khanhdp.com/chronicles/tap-16.webp"
 coverAlt: "Dập tắt bão 401 Refresh Token bằng In-Flight Promise Deduplication và di cư Native Google OAuth 2.0"
 readingTime: "13 phút đọc"
 author: "Dương Phúc Khánh"

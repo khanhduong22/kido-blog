@@ -3,7 +3,7 @@ title: "Thuật Toán Chống Gian Lận Sinh Học (Biological Anti-Cheat Heuri
 description: "Thiết kế cỗ máy heuristic chống gian lận dựa trên giới hạn sinh lý người: Phân tầng 3 cấp độ phán quyết, trần học tập Spartan 10.800 giây và thuật toán Sleep-Gap truy vết người thức đêm giả vờ dậy sớm."
 pubDate: 2026-10-23
 category: "Algorithms, Anti-Cheat & Behavioral Heuristics"
-cover: "/images/tap-41.jpg"
+cover: "https://cdn.khanhdp.com/chronicles/tap-41.webp"
 coverAlt: "Thuật toán chống gian lận sinh học, ngưỡng thể chất đa tầng và Sleep Gap Detection"
 readingTime: "14 phút đọc"
 author: "Dương Phúc Khánh"

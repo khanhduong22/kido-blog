@@ -3,7 +3,7 @@ title: "Zero-Allocation Logging, Shared DTO Xuyên Biên Giới Monorepo, Huy Hi
 description: "Chuyên sâu về kiến trúc Monorepo an toàn kiểu dữ liệu và giám sát hệ thống tự động: Nghệ thuật Zero-Allocation Logging với Pino, chia sẻ DTO hợp đồng giữa Frontend/Backend, chứng minh mật mã cho danh hiệu Soulbound và bot Telegram SRE cảnh báo sự cố 24/7."
 pubDate: 2026-10-23
 category: "Type-Safe Monorepo, Observability & SRE Automation"
-cover: "/images/tap-18.jpg"
+cover: "https://cdn.khanhdp.com/chronicles/tap-18.webp"
 coverAlt: "Zero-Allocation Logging, Shared DTO Monorepo, Huy hiệu Soulbound chống giả mạo và Bot Telegram SRE tự động hoá"
 readingTime: "14 phút đọc"
 author: "Dương Phúc Khánh"

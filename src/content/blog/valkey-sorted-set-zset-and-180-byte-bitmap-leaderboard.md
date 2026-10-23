@@ -3,7 +3,7 @@ title: "Thiết Kế Bảng Xếp Hạng Triệu View Với Chi Phí $0: Valkey 
 description: "Kiến trúc bảng xếp hạng thời gian thực phục vụ hàng trăm ngàn người dùng: Chuyển dịch từ câu lệnh SQL ORDER BY đắt đỏ sang Valkey SkipList và cấu trúc dữ liệu Bitmap siêu tiết kiệm RAM."
 pubDate: 2026-10-23
 category: "Database & High-Concurrency Caching"
-cover: "/images/tap-7.webp"
+cover: "https://cdn.khanhdp.com/chronicles/tap-7.webp"
 coverAlt: "Kiến trúc bảng xếp hạng triệu view bằng Valkey Sorted Set và Bitmap"
 readingTime: "12 phút đọc"
 author: "Dương Phúc Khánh"

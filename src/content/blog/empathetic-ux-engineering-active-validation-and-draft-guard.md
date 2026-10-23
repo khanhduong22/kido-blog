@@ -3,7 +3,7 @@ title: "UX Engineering Thực Chiến: Khai Tử Nút Save 'Chết Lâm Sàng', 
 description: "Chiến lược kỹ nghệ giao diện thấu cảm: Thay thế nút disabled vô cảm bằng Active Validation mượt mà, bảo vệ dữ liệu nhật ký với useDraftGuard, giải mã bẫy Suspense Next.js và làm chủ CSS Stacking Context."
 pubDate: 2026-10-23
 category: "Frontend UX Engineering & Design Systems"
-cover: "/images/tap-42.jpg"
+cover: "https://cdn.khanhdp.com/chronicles/tap-42.webp"
 coverAlt: "Minh họa UX Engineering: Active Validation, Draft Guard và CSS Stacking Context"
 readingTime: "12 phút đọc"
 author: "Dương Phúc Khánh"

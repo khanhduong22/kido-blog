@@ -3,7 +3,7 @@ title: "Toán Học Thời Gian & Tâm Lý Học Gamification: Xử Lý Lời Ng
 description: "Khám phá chiều sâu kiến trúc Gamification: Giải quyết bài toán phân ranh giới ngày cục bộ, thiết kế cửa sổ ân xá 14 ngày theo Domain-Driven Design, cỗ máy trạng thái maxStreak chống nản chí và hệ thống cứu hộ 20:00."
 pubDate: 2026-10-23
 category: "Domain-Driven Design & Gamification Architecture"
-cover: "/images/tap-46.jpg"
+cover: "https://cdn.khanhdp.com/chronicles/tap-46.webp"
 coverAlt: "Toán Học Thời Gian & Tâm Lý Học Gamification: Temporal Day Boundaries & Retroactive Grace Window"
 readingTime: "13 phút đọc"
 author: "Dương Phúc Khánh"

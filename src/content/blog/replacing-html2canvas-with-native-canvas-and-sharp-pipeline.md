@@ -3,7 +3,7 @@ title: "Khai Tử html2canvas (400KB) Bằng Native Canvas 2D API & Xử Lý L�
 description: "Phân tích vì sao html2canvas làm đơ trình duyệt di động 1.200ms, kỹ thuật vẽ ảnh chia sẻ 60 FPS bằng Native Canvas 2D và bí quyết thuần phục thư viện C++ sharp trên Alpine Linux musl."
 pubDate: 2026-10-23
 category: "Frontend Performance & Media Pipeline"
-cover: "/images/tap-15.jpg"
+cover: "https://cdn.khanhdp.com/chronicles/tap-15.webp"
 coverAlt: "Khai tử html2canvas bằng Native Canvas 2D API và khắc phục lỗi sharp trên Alpine Linux"
 readingTime: "12 phút đọc"
 author: "Dương Phúc Khánh"

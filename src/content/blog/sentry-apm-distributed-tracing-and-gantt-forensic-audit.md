@@ -3,7 +3,7 @@ title: "Observability Thực Chiến & Pháp Y Dữ Liệu: Tối Ưu Quota Sent
 description: "Kinh nghiệm thực chiến triển khai Sentry APM không cháy hạn mức: Bộ lọc nhiễu tiện ích trình duyệt, cấu hình sampling thông minh và kỹ thuật pháp y truy vết gian lận qua biểu đồ Gantt."
 pubDate: 2026-10-23
 category: "Observability, APM & Data Forensics"
-cover: "/images/tap-44.webp"
+cover: "https://cdn.khanhdp.com/chronicles/tap-44.webp"
 coverAlt: "Observability thực chiến và kỹ thuật pháp y phân tán với Sentry APM"
 readingTime: "13 phút đọc"
 author: "Dương Phúc Khánh"
